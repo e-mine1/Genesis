@@ -27,9 +27,7 @@ package Repository;
 import Features.IFeature;
 import Features.IOperation;
 import Features.IUnderlying;
-import Features.operations.IClaim;
 import Features.operations.IOperationProof;
-import Features.operations.IProof;
 import Features.operations.actions.IAction;
 import Features.properties.IProperty;
 import Token.IToken;
@@ -38,7 +36,8 @@ import java.util.Collection;
 import java.util.Map;
 
 /**
- * Communication with the Database. 
+ * Communication with the Database. Needs to implement all functionalities for storing
+ * and retrieving tokens and its features.
  * @author Mark C. Ballandies <bmark@ethz.ch>
  */
 public interface IRepository<T extends IToken> {

@@ -24,6 +24,7 @@
  */
 package Features.operations.actions;
 
+import Token.IToken;
 import Utilities.IAddress;
 
 /**
@@ -35,6 +36,7 @@ public class TransactionAction implements IAction{
     IAddress from;
     IAddress to;
     int value;
+    IToken token;
 
     public TransactionAction() {
     }
@@ -47,11 +49,18 @@ public class TransactionAction implements IAction{
         this.to = to;
         this.value = value;
     }
+
     
   
     /*
     GETTER & SETTER
-    */
+     */
+    public void setToken(IToken token) {
+        this.token = token;
+    }
+      public IToken getToken() {  
+        return token;
+    }
     public IAddress getFrom() {
         return from;
     }

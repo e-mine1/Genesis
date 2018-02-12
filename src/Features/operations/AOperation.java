@@ -29,7 +29,7 @@ import Features.IOperation;
 import Repository.IRepository;
 
 /**
- *
+ * Abstract Class for operations. Requires children to store a repository.
  * @author Mark C. Ballandies <bmark@ethz.ch>
  */
 public abstract class AOperation implements IOperation{

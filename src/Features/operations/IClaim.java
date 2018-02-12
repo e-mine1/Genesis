@@ -43,6 +43,6 @@ public interface IClaim {
      * Get Proof for the performed Action.
      * @return 
      */
-    IProof getProof();
+    IActionProof getProof();
     
 }

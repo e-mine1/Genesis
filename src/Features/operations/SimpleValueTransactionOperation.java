@@ -25,6 +25,7 @@
 package Features.operations;
 
 
+import Features.operations.actions.EActionType;
 import Features.operations.actions.IAction;
 
 
@@ -36,12 +37,13 @@ import Repository.IRepository;
 
 
 /**
- *
+ * Simple Transaction Operation. Does not require an action proof for logging to 
+ * database. 
  * @author Mark C. Ballandies <bmark@ethz.ch>
  */
-public class SimpleTransactionOperation extends AOperation{
+public class SimpleValueTransactionOperation extends AOperation{
 
-    public SimpleTransactionOperation(IRepository repo) {
+    public SimpleValueTransactionOperation(IRepository repo) {
         super(repo);
     }
 
@@ -62,10 +64,20 @@ public class SimpleTransactionOperation extends AOperation{
         // no reset needed
     }
     
-    
-
     @Override
     public boolean write(IToken token, IClaim claim) {
+        if(claim.getAction()==null)
+            return false;
+        if(!claim.getAction().getType().equals(EActionType.TRANSACTION))
+            return false;
+        if(!(claim.getAction()instanceof TransactionAction))
+            return false;
+        TransactionAction tAction = (TransactionAction) claim.getAction();
+        if(!tAction.getToken().equals(token))
+            return false;
+        
+        this.repo.store(tAction, null);
+        
         // check if transaction object etc. are correct
         // check if proven
         
@@ -75,8 +87,7 @@ public class SimpleTransactionOperation extends AOperation{
             return true;
         }
         else
-            return false;
-        
+            return false;   
     }
 
     @Override
