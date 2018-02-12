@@ -25,7 +25,8 @@
 package Features;
 
 /**
- *
+ *  Representing a Feature of a Token. 
+ * The sum of features make up a Token.
  * @author Mark C. Ballandies <bmark@ethz.ch>
  */
 public interface IFeature {

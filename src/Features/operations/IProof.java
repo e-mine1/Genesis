@@ -25,7 +25,7 @@
 package Features.operations;
 
 /**
- *
+ * Proof of an Action.
  * @author Mark C. Ballandies <bmark@ethz.ch>
  */
 public interface IProof {

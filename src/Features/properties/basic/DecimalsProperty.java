@@ -31,6 +31,7 @@ package Features.properties.basic;
 public class DecimalsProperty extends ABasicProperty<Integer>{
 
     public DecimalsProperty(Integer property) {
+        
         super(property);
     }
 

@@ -39,12 +39,34 @@ package Features;
 import Features.operations.IClaim;
 import Features.operations.actions.IAction;
 import Token.IToken;
+import java.util.List;
 
 /**
- *
+ * Operations a Token can perform. I.e. transaction of value
  * @author Mark C. Ballandies <bmark@ethz.ch>
  */
 public interface IOperation extends IFeature{
+    /**
+     * Get all Actions,
+     * @return 
+     */
+    List<IAction> getActions();
+    
+    /**
+     * Obtain the next Action in order to perform the Operation.
+     * @return 
+     */
     IAction getNextAction();
+    
+    /**
+     * Reset the Operation. 
+     */
+    void resetOperation();
+    /**
+     * Add the claim to the Token
+     * @param token
+     * @param claim
+     * @return 
+     */
     boolean write(IToken token, IClaim claim);
 }

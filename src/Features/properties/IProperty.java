@@ -8,7 +8,7 @@ package Features.properties;
 import Features.IFeature;
 
 /**
- *
+ * Inherent Characteristic of a Token. I.e. name, maximum supply, 
  * @author mcb
  */
 public interface IProperty<O extends Object> extends IFeature{

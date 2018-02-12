@@ -25,9 +25,11 @@
 package Features;
 
 /**
- *
+ * The three feature types making up a Token.
  * @author Mark C. Ballandies <bmark@ethz.ch>
  */
 public enum FeatureType {
-    UNDERLYING, PROPERTY, OPERATION
+    UNDERLYING, // gives value to a token
+    PROPERTY, // inherent characteristcs of a token
+    OPERATION // actions, which can be performed by tokens
 }

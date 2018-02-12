@@ -25,7 +25,7 @@
 package Token;
 
 /**
- *
+ * Responsibe for creating a new Token
  * @author Mark C. Ballandies <bmark@ethz.ch>
  */
 public class StandardTokenDirector {

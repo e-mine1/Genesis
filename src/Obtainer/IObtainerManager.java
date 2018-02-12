@@ -25,19 +25,46 @@
 package Obtainer;
 
 import Features.IOperation;
+import Features.operations.IActionProof;
 import Features.operations.IProof;
 import Token.IToken;
 import java.util.List;
 import Features.operations.actions.IAction;
 
 /**
- *
+ * 
  * @author Mark C. Ballandies <bmark@ethz.ch>
  */
 public interface IObtainerManager {
     
-    boolean claim(IAction action, IProof proof);
+    /**
+     * Claim the action. Provide a proof if needed.
+     * @param action
+     * @param proof
+     * @return 
+     */
+    boolean claim(IAction action, IActionProof proof);
+    /**
+     * Get all operations a specific Token can perform.
+     * @param token
+     * @return 
+     */
     List<IOperation> getOperations(IToken token);
+    /**
+     * Get all Tokens inside the Obtainer Manager. 
+     * @return 
+     */
     List<IToken> getAllTokens();
+    
+    /**
+     * The the tokens to the obtainer manager
+     * @param tokens 
+     */
+    void addTokens(List<IToken> tokens);
+    /**
+     * Replace Tokens of the ObtainerManager with @tokens.
+     * @param tokens 
+     */
+    void resetTokens(List<IToken> tokens);
     
 }

@@ -34,10 +34,10 @@ import Features.operations.actions.IAction;
 public class StandardClaim implements IClaim{
 
     
-    IAction action;
-    IProof proof;
+    IAction action; // performed action
+    IActionProof proof; // proof for action
 
-    public StandardClaim(IAction action, IProof proof) {
+    public StandardClaim(IAction action, IActionProof proof) {
         this.action = action;
         this.proof = proof;
     }
@@ -50,7 +50,7 @@ public class StandardClaim implements IClaim{
     }
 
     @Override
-    public IProof getProof() {
+    public IActionProof getProof() {
         return this.proof;
     }
     

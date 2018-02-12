@@ -28,12 +28,21 @@ import Features.operations.actions.IAction;
 import Utilities.IAddress;
 
 /**
- *
+ * Represents the claim to a performed action and its proof.
+ * I.e. the action can be a transformed value transaction.
  * @author Mark C. Ballandies <bmark@ethz.ch>
  */
 public interface IClaim {
     
+    /**
+     * Obtain the performed Action Object.
+     * @return 
+     */
     IAction getAction();
+    /**
+     * Get Proof for the performed Action.
+     * @return 
+     */
     IProof getProof();
     
 }

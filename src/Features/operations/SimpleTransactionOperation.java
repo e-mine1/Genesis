@@ -27,19 +27,21 @@ package Features.operations;
 
 import Features.operations.actions.IAction;
 
-import Features.operations.actions.EActionType;
+
 import Features.operations.actions.TransactionAction;
-import Repository.IRepository;
 import Token.IToken;
+import java.util.ArrayList;
+import java.util.List;
+import Repository.IRepository;
 
 
 /**
  *
  * @author Mark C. Ballandies <bmark@ethz.ch>
  */
-public class TransactionOperation extends AOperation{
+public class SimpleTransactionOperation extends AOperation{
 
-    public TransactionOperation(IRepository repo) {
+    public SimpleTransactionOperation(IRepository repo) {
         super(repo);
     }
 
@@ -49,15 +51,31 @@ public class TransactionOperation extends AOperation{
     }
 
     @Override
+    public List<IAction> getActions() {
+        List<IAction> returnList = new ArrayList();
+        returnList.add(getNextAction());
+        return returnList;
+    }
+
+    @Override
+    public void resetOperation() {
+        // no reset needed
+    }
+    
+    
+
+    @Override
     public boolean write(IToken token, IClaim claim) {
+        // check if transaction object etc. are correct
+        // check if proven
         
-        if(claim.getAction().getType().equals(EActionType.TRANSACTION)){
-            TransactionAction action = (TransactionAction) claim.getAction();
-            return this.repo.transfer(token, action.getFrom(), action.getTo(), action.getValue(), claim.getProof());
-        }else{
-            return false;
+        if(this.repo.store(claim.getAction(), null)){
+            //do something - like rewarding - 
+            // in case of value transaction to nothing, because no incentivization
+            return true;
         }
-        
+        else
+            return false;
         
     }
 

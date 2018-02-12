@@ -24,12 +24,12 @@ import Features.properties.basic.GeneralSupplyProperty;
 import Features.properties.basic.GenesisSupplyProperty;
 import Features.properties.basic.NameProperty;
 import Features.properties.basic.SymbolProperty;
-import Repository.IRepository;
 import java.beans.IndexedPropertyChangeEvent;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import Repository.IRepository;
 
 /**
  *
@@ -181,15 +181,6 @@ public class BasicToken<A extends IOperation, P extends IProperty,U extends IUnd
     public Map<IAddress, Integer> getAllBalances() {
         return this.repository.getAllBalances(this);
     }
-    //@Override
-    protected boolean transfer(IAddress from, IAddress to, int value, IProof proof) {
-       if(value>0){
-           return this.repository.transfer(this, from, to, value, proof);
-       }else{
-          return false; 
-       }
-       
-    }    
 
     @Override
     public boolean addClaim(IClaim claim) {

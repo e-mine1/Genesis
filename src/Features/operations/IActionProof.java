@@ -22,29 +22,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package Token;
+package Features.operations;
 
 /**
- * Responsible for creating a Token
+ *
  * @author Mark C. Ballandies <bmark@ethz.ch>
  */
-public interface ITokenBuilder<T extends IToken> {
-    /**
-     * Create all underlyings
-     */
-    void buildUnderlying();
-    /**
-     * Create all Properties
-     */
-    void buildProperties();
-    /**
-     * Create All Operations
-     */
-    void buildOperations();
+public interface IActionProof extends IProof{
     
-    /**
-     * Create a new Token with the build Underlyings, Properties & Operations. 
-     * @return 
-     */
-    T buildToken();
 }

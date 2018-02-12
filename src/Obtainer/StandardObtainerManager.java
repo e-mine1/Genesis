@@ -25,6 +25,7 @@
 package Obtainer;
 
 import Features.IOperation;
+import Features.operations.IActionProof;
 import Features.operations.actions.IAction;
 import Features.operations.IProof;
 import Features.operations.StandardClaim;
@@ -41,16 +42,18 @@ import java.util.Set;
  */
 public class StandardObtainerManager implements IObtainerManager{
 
-    Set<IToken> tokens;
+    Set<IToken> tokens; // Tokens handled by the Obtainer manager
 
     public StandardObtainerManager(Collection<IToken> tokens) {
-        this.tokens = new HashSet<>(tokens);
+        if(tokens!=null)
+            this.tokens = new HashSet<>(tokens);
+        else
+            this.tokens = new HashSet<>();
     } 
     
     
-    
     @Override
-    public boolean claim(IAction task, IProof proof) {
+    public boolean claim(IAction task, IActionProof proof) {
        boolean successfulClaimed=false;
        for(IToken token: tokens){
            successfulClaimed= token.addClaim(new StandardClaim(task, proof)) || successfulClaimed;
@@ -71,6 +74,22 @@ public class StandardObtainerManager implements IObtainerManager{
     public List<IToken> getAllTokens() {
         return new ArrayList();
     }
+
+    @Override
+    public void addTokens(List<IToken> tokens) {
+        if(tokens!=null)
+            this.tokens.addAll(tokens);
+    }
+
+    @Override
+    public void resetTokens(List<IToken> tokens) {
+        if(tokens==null)
+            tokens = new ArrayList<>();
+        this.tokens.clear();
+        this.tokens = this.tokens;
+    }
+    
+    
     
     
 }
