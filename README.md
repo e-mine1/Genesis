@@ -8,7 +8,7 @@ Java library to create Tokens with different Properties, Underlyings and Operati
 
 The project is written with the netbeans IDE.
 
-An example project exists, which uses this library. It is called GenesisApp. Please contact: bmark@ethz.ch if you are interested in it.
+An example project exists, which uses this library. It is called GenesisApp: www.github.com/FuturICT2/Genesis. In case of questions, please contact: bmark@ethz.ch.
 
 ## Software Architecture (little bit outdated) for the Challenge
 
